@@ -5,9 +5,13 @@ Statamic plugin that adds a random flickr images block to your site
 
 
 # Installation
-## Copy the files to their destination
-Download or clone this project on your system.
-Add the contents of the folder to the `_add-ons/flickr` folder.
+## Clone or Copy the files to their destination
+Clone this project on your system:
+
+    cd webfolder/_add-ons
+    git clone git://github.com/mwesten/Plugin-Flickr.git flickr
+
+Or download the project and add the contents of archive to the `_add-ons/flickr` folder.
 
 ## Add the config values
 Add the following info to the `_config/globals.yaml`
@@ -21,7 +25,7 @@ Add the following info to the `_config/globals.yaml`
 
 Then fill the `flickr_api_user` by looking up your `flickr_api_user_name` on [this page](http://www.adamwlewis.com/articles/what-is-my-flickr-id).
 
-Now create an API key on [http://www.flickr.com/services/apps](http://www.flickr.com/services/apps) and past the generated **private key** as the `flickr_api_key`.
+Now create an API key on [http://www.flickr.com/services/apps](http://www.flickr.com/services/apps) and paste the generated **private key** as the `flickr_api_key`.
 
 ## Add the flickr block to your template
 Open the theme file (for example) `_themes/london-wild/partials/sidebar.html`
