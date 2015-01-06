@@ -1,0 +1,6 @@
+	# Flickr Random Images
+	# Get your API key here: http://www.flickr.com/services/apps
+	flickr_api_key: xxxxxxxxxxxxxxxxxx
+	flickr_api_user: yyyyyyyyyy
+	flickr_api_user_name: mwesten
+	flickr_api_count: 9

@@ -4,25 +4,25 @@
 
     var $meta = array(
       'name'       => 'Flickr',
-      'version'    => '0.1',
+      'version'    => '0.2',
       'author'     => 'Max Westen',
       'author_url' => 'http://dlmax.org'
     );
 
     function __construct() {
       parent::__construct();
-      $this->site_root  = Statamic::get_site_root();
-      $this->theme_root = Statamic::get_templates_path();
+      $this->site_root  = Config::getSiteRoot();
+      $this->theme_root = Config::getTemplatesPath();
       $this->plugin_path = $this->getPluginPath();
     }
 
 
     function sidebar() {
-      $key = $this->fetch_param('key', null, false, false, false); // flickr api key defaults to none
-      $user = $this->fetch_param('user', null, false, false, false); // Flickr user ID defaults to none
-      $name = $this->fetch_param('name', null, false, false, false); // Flickr username defaults to none
-      $count = $this->fetch_param('count', 9, 'is_numeric'); // number of images defaults to 9
-      $poolsize = $this->fetch_param('poolsize', 150, 'is_numeric'); // defaults to 150
+      $key = $this->fetchParam('key', null, false, false, false); // flickr api key defaults to none
+      $user = $this->fetchParam('user', null, false, false, false); // Flickr user ID defaults to none
+      $name = $this->fetchParam('name', null, false, false, false); // Flickr username defaults to none
+      $count = $this->fetchParam('count', 9, 'is_numeric'); // number of images defaults to 9
+      $poolsize = $this->fetchParam('poolsize', 150, 'is_numeric'); // defaults to 150
 
       $output = '
       <style type="text/css">
@@ -46,7 +46,7 @@
           var flickr_api_wrapper = "flickr_wrapper"; // id target for imagelist
           var flickr_api_base_url	= "api.flickr.com/services/rest";
 
-          $(document).ready(function() {
+          document.addEventListener("DOMContentLoaded", function(event) {
             (function(){
               var flickrapiInit = document.createElement("script");
               flickrapiInit.type = "text/javascript";
@@ -54,7 +54,6 @@
               flickrapiInit.src = "'.$this->plugin_path.'/js/flickr_api.js";
               document.getElementsByTagName("head")[0].appendChild(flickrapiInit);
             })();
-
           });
         </script>
       ';
@@ -70,7 +69,7 @@
     private function getPluginPath() {
       $plugindir = basename(dirname(__FILE__));
       $parentdir = basename(dirname(dirname(__FILE__)));
-      $pluginpath = Statamic_helper::reduce_double_slashes($this->site_root.'/'.$parentdir .'/' . $plugindir."/");
+      $pluginpath = Path::trimSlashes($this->site_root.'/'.$parentdir .'/' . $plugindir."/");
 
       return $pluginpath;
     }

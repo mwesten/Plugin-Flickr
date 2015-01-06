@@ -74,4 +74,4 @@ function Flickr_Api() {
 
 
 Flickr_Api.prototype = new Flickr_Api();
-flickrApiFetchScript("http://"+flickr_api_base_url+"/?method=flickr.photos.search&api_key="+flickr_api_key+"&user_id="+flickr_api_user+"&privacy_filter=1&per_page="+flickr_api_poolsize+"&format=json&jsoncallback=flickrNS_show_images");
+flickrApiFetchScript("https://"+flickr_api_base_url+"/?method=flickr.photos.search&api_key="+flickr_api_key+"&user_id="+flickr_api_user+"&privacy_filter=1&per_page="+flickr_api_poolsize+"&format=json&jsoncallback=flickrNS_show_images");
