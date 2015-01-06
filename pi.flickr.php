@@ -18,10 +18,10 @@
 
 
     function sidebar() {
-      $key = $this->fetchParam('key', null, false, false, false); // flickr api key defaults to none
-      $user = $this->fetchParam('user', null, false, false, false); // Flickr user ID defaults to none
-      $name = $this->fetchParam('name', null, false, false, false); // Flickr username defaults to none
-      $count = $this->fetchParam('count', 9, 'is_numeric'); // number of images defaults to 9
+      $key = $this->fetchParam('key', $this->config['flickr_api_key'], false, false, false); // flickr api key defaults to none
+      $user = $this->fetchParam('user', $this->config['flickr_api_user'], false, false, false); // Flickr user ID defaults to none
+      $name = $this->fetchParam('name', $this->config['flickr_api_user_name'], false, false, false); // Flickr username defaults to none
+      $count = $this->fetchParam('count', $this->config['flickr_api_count'], 'is_numeric'); // number of images defaults to 9
       $poolsize = $this->fetchParam('poolsize', 150, 'is_numeric'); // defaults to 150
 
       $output = '

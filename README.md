@@ -40,7 +40,10 @@ Now create an API key on [http://www.flickr.com/services/apps](http://www.flickr
 Open the theme file (for example) `_themes/acadia/partials/keep-in-touch.html`
 Add the following code in the location you want the random flickr images displayed:
 
-    {{ flickr:sidebar key="{ flickr_api_key }" user="{ flickr_api_user }" name="{ flickr_api_user_name }" count="{ flickr_api_count }" }}
+    {{ flickr:sidebar }}
+
+optionally you can add other parameters to the `flickr:sidebar` tag:
+    {{ flickr:sidebar key="[flickr api key]" user="[flickr api user]" name="[flickr api user name]" count="[flickr api count]" }}
 
 
 
